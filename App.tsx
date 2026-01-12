@@ -9,7 +9,8 @@ import {
   Clock, 
   Globe,
   Apple,
-  CheckCircle2
+  CheckCircle2,
+  FileText
 } from 'lucide-react';
 import { FEATURES } from './constants';
 import { translations } from './translations';
@@ -25,6 +26,7 @@ const PlayStoreIcon = () => (
 const App: React.FC = () => {
   const [language, setLanguage] = useState<Language>('zh');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showPrivacyModal, setShowPrivacyModal] = useState(false);
 
   const t = translations[language];
 
@@ -57,7 +59,48 @@ const App: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white selection:bg-indigo-100">
+    <div className="min-h-screen bg-white selection:bg-indigo-100 relative">
+      {/* Privacy Policy Modal */}
+      {showPrivacyModal && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+          <div 
+            className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity" 
+            onClick={() => setShowPrivacyModal(false)}
+          ></div>
+          <div className="relative bg-white w-full max-w-2xl max-h-[80vh] overflow-y-auto rounded-[2rem] shadow-2xl animate-fade-in-up border border-indigo-50">
+            <div className="sticky top-0 bg-white/80 backdrop-blur-md px-8 py-6 border-b border-slate-100 flex justify-between items-center">
+              <div className="flex items-center gap-3">
+                <FileText className="text-indigo-600" />
+                <h3 className="text-2xl font-bold text-slate-900">{t.privacy.title}</h3>
+              </div>
+              <button 
+                onClick={() => setShowPrivacyModal(false)}
+                className="p-2 hover:bg-slate-100 rounded-full transition-colors"
+              >
+                <X size={24} className="text-slate-500" />
+              </button>
+            </div>
+            <div className="p-8 space-y-8 text-slate-600">
+              <p className="text-sm font-medium text-indigo-500">{t.privacy.lastUpdated}</p>
+              {t.privacy.sections.map((section, idx) => (
+                <div key={idx} className="space-y-3">
+                  <h4 className="text-lg font-bold text-slate-900">{section.title}</h4>
+                  <p className="leading-relaxed">{section.content}</p>
+                </div>
+              ))}
+            </div>
+            <div className="p-8 border-t border-slate-100 text-right">
+              <button 
+                onClick={() => setShowPrivacyModal(false)}
+                className="bg-indigo-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-indigo-700 transition-colors"
+              >
+                {t.privacy.close}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Navigation */}
       <nav className="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-indigo-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -319,6 +362,12 @@ const App: React.FC = () => {
           <div className="pt-8 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-4 text-slate-400 text-sm">
             <p>{t.footer.rights}</p>
             <div className="flex items-center gap-6">
+              <button 
+                onClick={() => setShowPrivacyModal(true)}
+                className="hover:text-indigo-600 transition-colors"
+              >
+                {t.footer.privacy}
+              </button>
               <span className="flex items-center gap-1"><Shield size={14} /> {t.footer.secured}</span>
               <span className="flex items-center gap-1"><Clock size={14} /> {t.footer.monitoring}</span>
             </div>
@@ -348,6 +397,13 @@ const App: React.FC = () => {
         }
         .animate-spin-slow {
           animation: spin-slow 8s linear infinite;
+        }
+        @keyframes fade-in-up {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-up {
+          animation: fade-in-up 0.5s ease-out forwards;
         }
       `}</style>
     </div>

@@ -21,15 +21,6 @@ export const translations = {
         rating: "Rating"
       }
     },
-    calculator: {
-      title: "Rate Calculator",
-      select: "Select Gift Card",
-      amount: "Amount ($)",
-      currentRate: "Current Rate",
-      payout: "Total Payout",
-      exchange: "Exchange Now",
-      locked: "Rate Locked"
-    },
     features: {
       title: "30+ Cards Supported",
       subtitle: "From Steam to Sephora, we support over 30 global card types with the most competitive market rates.",
@@ -55,6 +46,29 @@ export const translations = {
       s3: { t: "Get Paid", d: "Receive payment as soon as the card is verified." },
       status: "Processing...",
       time: "Paid out in 4 mins"
+    },
+    privacy: {
+      title: "Privacy Policy",
+      close: "Close",
+      lastUpdated: "Last Updated: May 2024",
+      sections: [
+        {
+          title: "1. Information We Collect",
+          content: "We collect information you provide directly to us when you create an account, initiate a trade, or communicate with us. This includes your name, contact information, and payment details."
+        },
+        {
+          title: "2. How We Use Your Information",
+          content: "We use your information to facilitate gift card trades, process payments, prevent fraud, and provide customer support. We may also use it to improve our security protocols."
+        },
+        {
+          title: "3. Data Security",
+          content: "We implement robust security measures to protect your data, including end-to-end encryption for all card details and 24/7 monitoring of transaction patterns."
+        },
+        {
+          title: "4. Information Sharing",
+          content: "We do not sell your personal information. We only share data with trusted partners necessary to complete your transactions or as required by law."
+        }
+      ]
     },
     footer: {
       desc: "The most trusted and fastest way to exchange your gift cards for cash. Built for professional sellers.",
@@ -118,6 +132,29 @@ export const translations = {
       s3: { t: "收到付款", d: "卡片验证通过后，立即接收付款。" },
       status: "处理中...",
       time: "4分钟内已支付"
+    },
+    privacy: {
+      title: "隐私政策",
+      close: "关闭",
+      lastUpdated: "最后更新：2024年5月",
+      sections: [
+        {
+          title: "1. 我们收集的信息",
+          content: "当您创建账户、发起交易或与我们沟通时，我们会收集您直接提供的信息。这包括您的姓名、联系方式和支付详情。"
+        },
+        {
+          title: "2. 我们如何使用您的信息",
+          content: "我们使用您的信息来促进礼品卡交易、处理付款、防止欺诈并提供客户支持。我们也可能将其用于改进我们的安全协议。"
+        },
+        {
+          title: "3. 数据安全",
+          content: "我们实施强有力的安全措施来保护您的数据，包括对所有卡片详情进行端到端加密，以及对交易模式进行 24/7 全天候监控。"
+        },
+        {
+          title: "4. 信息共享",
+          content: "我们不会出售您的个人信息。我们仅与完成您的交易所需的受信任伙伴共享数据，或根据法律要求共享。"
+        }
+      ]
     },
     footer: {
       desc: "最值得信赖、最快捷的礼品卡变现方式。专为专业卖家打造。",
