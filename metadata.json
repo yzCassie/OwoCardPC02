@@ -1,0 +1,7 @@
+{
+  "name": "OwoCard - Premium Gift Card Trading",
+  "description": "A minimalist, secure, and lightning-fast gift card trading platform for local sellers to cash out their cards with locked rates.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
